@@ -16,7 +16,7 @@ import { GLTFLoader } from './lib/GLTFLoader.js';
 
 
 
-
+let testBone;
 
 class BasicWorldDemo {
   constructor() {
@@ -129,8 +129,11 @@ class BasicWorldDemo {
     // box.receiveShadow = true;
     // this._scene.add(box);
 
+    this._model;
     this._RAF();
     this._LoadModel();
+    // this.bendFinger();
+ 
   }
 
   _OnWindowResize() {
@@ -141,12 +144,21 @@ class BasicWorldDemo {
 
   _LoadModel(){
     const modelLoader = new GLTFLoader();
-    modelLoader.load('assets/models/hand_model.gltf',(gltf)=>{
+    modelLoader.load('assets/models/hand_unisex.glb',(gltf)=>{
 
       gltf.scene.traverse(c=>{
-        c.castShadow = true;
+        c.castShadow = false;
       });
-     
+
+      // Am able to rotate the bone: 😎
+      this._model = gltf.scene;
+      testBone = this._model.getObjectByName("Bone012");
+      testBone.rotation.z+=Math.PI / 2;
+
+      console.log(testBone?testBone:"model not loaded");
+      gltf.scene.scale.set(15,15,15); 
+      gltf.scene.rotation.y = Math.PI / 2;
+      // gltf.scene.rotation.z = Math.PI / 2;
       this._scene.add(gltf.scene);
 
     });
@@ -157,6 +169,12 @@ class BasicWorldDemo {
       this._threejs.render(this._scene, this._camera);
       this._RAF();
     });
+  }
+
+  bendFinger(){
+    
+  
+    // bone1.rotation.x+= Math.sin( t ) * 0.005;
   }
 }
 
