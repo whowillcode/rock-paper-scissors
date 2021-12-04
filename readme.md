@@ -6,6 +6,7 @@ __Setup Three js__
 - Tutorial: 
   - https://youtube.com/playlist?list=PLRL3Z3lpLmH0aqLDbfh0ZmnDkpXPDnTau 
   - https://github.com/simondevyoutube/ThreeJS_Tutorial_BasicWorld
+  - For Animation: https://jsfiddle.net/bdmrg4oc/1/ 
 
 Credits:
 - "Hand (low poly)" (https://skfb.ly/Dr9p) by scribbletoad is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).
